@@ -1,0 +1,11 @@
+body { font-family:sans-serif; margin: 10px; }
+
+input[type="button"] { padding: 4px; margin-top:8px; }
+
+input[type="text"] { width:100% }
+
+#output { font-size: 85%; color: darkblue; border: 1px solid black; background:beige; padding:4px;}
+
+span { font-size: 100%; color: darkgreen; }
+
+.help { background: lightgray; padding: 4px; border: 1px solid gray; }

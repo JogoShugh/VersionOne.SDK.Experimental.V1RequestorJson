@@ -1,0 +1,31 @@
+<html>
+<body>    
+    <form id="requestForm"></form> 
+    
+    <br/>
+    <hr/>
+    
+    <div id="output"></div>
+     
+    <script id="fieldsTemplate" type="text/x-jquery-tmpl">
+        <div id="fields">        
+            {{for fields}}
+            <p>
+                <label for="{{:name}}">{{:label}}: </label><br /><input type="text" value="{{:def}}" id="{{:name}}" />
+            </p>            
+            {{/for}}
+        </div>
+        <p>                    
+            <input type="button" value="Create Request" id="run" />
+        </p>
+    </script>
+        
+    <script id="requestItemTemplate" type="text/x-jquery-tmpl">
+        <div class='requestItem' data-assetid='{{:_links.self.id}}'>
+            <span>{{:Name}}</span>
+            <div>{{:Description}}</div>
+            <hr />        
+        </div>
+    </script>    
+</body>
+</html>​
