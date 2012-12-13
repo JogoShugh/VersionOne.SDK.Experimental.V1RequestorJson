@@ -3,5 +3,5 @@
  authors:
    - Josh Gough
  resources:
-   - http://borismoore.github.com/jsviews/jsrender.js
+   - /jsrender.js
  normalize_css: no
