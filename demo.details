@@ -1,0 +1,7 @@
+ name: V1 Requestor JSON
+ description: V1 Requestor in pure client-side CoffeeScript
+ authors:
+   - Josh Gough
+ resources:
+   - http://borismoore.github.com/jsviews/jsrender.js
+ normalize_css: no
