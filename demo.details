@@ -4,6 +4,6 @@
  authors:
    - Josh Gough
  resources:
-   - /jsrender.js
+   - https://raw.github.com/JogoShugh/VersionOne.SDK.Experimental.V1RequestorJson/master/jsrender.js
  normalize_css: no
 ...
