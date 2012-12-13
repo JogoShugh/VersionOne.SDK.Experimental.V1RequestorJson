@@ -1,3 +1,4 @@
+---
  name: V1 Requestor JSON
  description: V1 Requestor in pure client-side CoffeeScript
  authors:
@@ -5,3 +6,4 @@
  resources:
    - /jsrender.js
  normalize_css: no
+...
