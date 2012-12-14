@@ -52,14 +52,19 @@ setupApp = function() {
     }, {
       name: "Description",
       label: "Description",
+      required: false,
       def: "",
       type: "textarea",
       height: 200
     }
   ];
   createStory = function() {
-    var dto;
-    dto = createDto();
+    var dtoResult = createDto();
+    if (dtoResult[0] == true) {
+      return;
+    }
+    clearErrors();
+    var dto = dtoResult[1];
     return $.ajax({
       url: service + "Request" + "?" + $.param(queryOpts),
       headers: headers,
@@ -76,17 +81,30 @@ setupApp = function() {
   createDto = function() {
     var attributes;
     attributes = {};
+    var hasError = false;
     $("#requestForm .inputField").each(function() {
       var el;
       el = $(this);
-      return attributes[el.attr("id")] = el.val();
+      var id = el.attr("id");
+      var val = el.val();
+      var required = el.attr("data-required");
+      if (required == "true" && (val == null || val == "undefined" || val == "")) {
+        hasError = true;
+        var error = $("#err" + id)
+        var label = error.attr("data-label");
+        error.text(label + " is required");
+      }      
+      return attributes[id] = el.val();
     });
     attributes._links = {
       Scope: {
         idref: projectScopeId
       }
     };
-    return attributes;
+    return [hasError, attributes];
+  };
+  clearErrors = function() {
+    $(".error").text("");
   };
   init = function() {
     return $("#requestForm").html($("#fieldsTemplate").render({

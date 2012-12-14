@@ -3,7 +3,7 @@
     <title>VersionOne Requestor Sample App</title>
 </head>
 <body>    
-    <img src="https://github.com/JogoShugh/VersionOne.SDK.Experimental.V1RequestorJson/blob/master/version_one_logo.JPG?raw=true" />
+    <img class="centerImg" src="https://github.com/JogoShugh/VersionOne.SDK.Experimental.V1RequestorJson/blob/master/version_one_logo.JPG?raw=true" />
     
     <br />
 
@@ -19,19 +19,20 @@
             {{for fields}}
             <p>
                 <label for="{{:name}}">{{:label}}: </label>
-                {{if required == true}}<span class="required">*</span>
+                {{if required == true}}<span class="required">*</span> <span id="err{{:name}}" class="error" data-label="{{:label}}"></span>
                 {{/if}}
                 <br />
                 {{if type == "textarea" }}
-                    <textarea id="{{:name}}" class="inputField" />
+                    <textarea id="{{:name}}" class="inputField" data-required="{{:required}}" />
                 {{else}}
-                    <input type="text" value="{{:def}}" id="{{:name}}" class="inputField" />
+                    <input type="text" value="{{:def}}" id="{{:name}}" class="inputField" data-required="{{:required}}" />
                 {{/if}}                
             </p>            
             {{/for}}
         </div>
         <p>                    
             <input type="button" value="Create Request" id="run" />
+            <input type="reset" value="Reset" id="reset" />
         </p>
     </script>
         
