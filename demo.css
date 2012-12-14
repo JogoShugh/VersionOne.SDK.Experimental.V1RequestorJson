@@ -19,3 +19,9 @@ span { font-size: 100%; color: darkgreen; }
 }
 
 .help { background: lightgray; padding: 4px; border: 1px solid gray; }​
+
+.centerImg {	
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
