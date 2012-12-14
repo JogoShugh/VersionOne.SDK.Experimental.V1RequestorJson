@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script src="https://raw.github.com/JogoShugh/VersionOne.SDK.Experimental.V1RequestorJson/master/jsrender.js" type="text/javascript"></script>
+    <title>VersionOne Requestor Sample App</title>
 </head>
 <body>    
     <form id="requestForm"></form> 
@@ -14,7 +14,15 @@
         <div id="fields">        
             {{for fields}}
             <p>
-                <label for="{{:name}}">{{:label}}: </label><br /><input type="text" value="{{:def}}" id="{{:name}}" />
+                <label for="{{:name}}">{{:label}}: </label>
+                {{if required == true}}<span class="required">*</span>
+                {{/if}}
+                <br />
+                {{if type == "textarea" }}
+                    <textarea id="{{:name}}" />
+                {{else}}
+                    <input type="text" value="{{:def}}" id="{{:name}}" />
+                {{/if}}                
             </p>            
             {{/for}}
         </div>
@@ -31,4 +39,5 @@
         </div>
     </script>    
 </body>
-</html>​
+</html>
+​

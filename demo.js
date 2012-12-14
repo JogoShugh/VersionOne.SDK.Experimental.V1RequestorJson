@@ -1,4 +1,4 @@
-var headers, host, projectName, projectScopeId, queryOpts, service, setupApp, whereCriteria;
+var headers, host, projectName, projectScopeId, queryOpts, service, setupApp, whereCriteria, contentType, whereParams;
 
 projectName = "'System (All Projects)'";
 
@@ -8,8 +8,10 @@ host = "http://platform-dev";
 
 service = host + "/CustomerTest/rest-1.v1/Data/";
 
+contentType = "hal+json";
+
 queryOpts = {
-  acceptFormat: "hal+json"
+  acceptFormat: contentType
 };
 
 headers = {
@@ -20,8 +22,13 @@ whereCriteria = {
   Name: projectName
 };
 
+whereParams = {
+    acceptFormat: contentType,
+    sel: ""        
+};
+
 $.ajax({
-  url: service + "Scope" + "?where=" + $.param(whereCriteria) + "&acceptFormat=hal%2bjson&sel=",
+  url: service + "Scope" + "?where=" + $.param(whereCriteria) + "&" + $.param(whereParams),
   headers: headers,
   type: "GET"
 }).done(function(data) {
@@ -35,9 +42,11 @@ setupApp = function() {
     {
       name: "RequestedBy",
       label: "Requested By",
+      required: true,
       def: ""
     }, {
       name: "Name",
+      required: true,        
       label: "Title",
       def: ""
     }, {
@@ -45,7 +54,7 @@ setupApp = function() {
       label: "Description",
       def: "",
       type: "textarea",
-      height: 100
+      height: 200
     }
   ];
   createStory = function() {
@@ -56,7 +65,7 @@ setupApp = function() {
       headers: headers,
       type: "POST",
       data: JSON.stringify(dto),
-      contentType: "hal+json"
+      contentType: contentType
     }).done(function(data) {
       var item;
       item = $("<div></div>");
@@ -85,5 +94,5 @@ setupApp = function() {
     }));
   };
   $(init);
-  return $("#run").click(createStory​);
+  return $("#run").click(createStory);
 };

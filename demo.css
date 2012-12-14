@@ -4,8 +4,18 @@ input[type="button"] { padding: 4px; margin-top:8px; }
 
 input[type="text"] { width:100% }
 
+textarea {
+    width: 100%;
+    height: 125px;
+}
+
 #output { font-size: 85%; color: darkblue; border: 1px solid black; background:beige; padding:4px;}
 
 span { font-size: 100%; color: darkgreen; }
 
-.help { background: lightgray; padding: 4px; border: 1px solid gray; }
+.required {
+    font-weight:bold;
+    color:red;
+}
+
+.help { background: lightgray; padding: 4px; border: 1px solid gray; }​
