@@ -76,7 +76,7 @@ setupApp = function() {
   createDto = function() {
     var attributes;
     attributes = {};
-    $("#requestForm input[type='text']").each(function() {
+    $("#requestForm .inputField").each(function() {
       var el;
       el = $(this);
       return attributes[el.attr("id")] = el.val();
@@ -95,4 +95,4 @@ setupApp = function() {
   };
   $(init);
   return $("#run").click(createStory);
-};
+};​
